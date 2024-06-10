@@ -38,3 +38,33 @@ class ft_filter:
 
     def __repr__(self):
         return f"<ft_filter object at {hex(id(self))}>"
+
+
+def main():
+    print("Test main for ft_filter")
+    iter = [71, 12, 17, 18, 24, 32]
+
+    def func(x):
+        return x >= 18
+
+    print("\nreal filter")
+    try:
+        filtered = filter(func, iter)
+        print(filtered)
+        for item in filtered:
+            print(item)
+    except TypeError as e:
+        print(f"{e.__class__.__name__}: {e}")
+
+    print("\nmy ft_filter")
+    try:
+        filtered = ft_filter(func, iter)
+        print(filtered)
+        for item in filtered:
+            print(item)
+    except TypeError as e:
+        print(f"{e.__class__.__name__}: {e}")
+
+
+if __name__ == "__main__":
+    main()
