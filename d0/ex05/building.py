@@ -2,6 +2,15 @@ import sys as s
 
 
 def main():
+    """
+    Counts and segregates the characters in a string.
+
+    Args:
+        One shell argument: the string to count
+
+    Returns:
+        None
+    """
     argc = len(s.argv)
     try:
         assert argc <= 2, "too many arguments"
