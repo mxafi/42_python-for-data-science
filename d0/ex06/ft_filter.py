@@ -41,6 +41,9 @@ class ft_filter:
 
 
 def main():
+    """
+    A testing main function for ft_filter class.
+    """
     print("Test main for ft_filter")
     iter = [71, 12, 17, 18, 24, 32]
 
