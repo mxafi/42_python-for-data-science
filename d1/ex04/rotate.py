@@ -15,16 +15,14 @@ def main():
     if a.size == 1 and a[0] == "error_load_image":
         return
 
+    height, width = a.shape[:2]
+    top = int(0.12 * a.shape[0])
+    left = int(0.44 * a.shape[1])
+    a = a[top:min(top+400, height), left:min(left+400, width)]
     im = Image.fromarray(a)
-    width, height = im.size
-    left = int(0.44 * width)
-    top = int(0.12 * height)
-    right = min(int(left + 400), width)
-    bottom = min(int(top + 400), height)
-    im = im.crop((left, top, right, bottom))
     im = ImageOps.grayscale(im)
-    a2 = np.array(im)
-    a2 = a2.reshape(a2.shape[0], a2.shape[1], 1)
+    a = np.array(im)
+    a2 = a.reshape(a.shape[0], a.shape[1], 1)
     print("The shape of image is:", a2.shape)
     print(a2)
 
