@@ -1,6 +1,5 @@
 from PIL import Image, ImageOps
 import matplotlib.pyplot as plt
-import matplotlib as mpl
 import numpy as np
 from load_image import ft_load
 
@@ -28,7 +27,9 @@ def main():
     im = im.crop((left, top, right, bottom))
     im = ImageOps.grayscale(im)
     a2 = np.array(im)
+    a2 = a2.reshape(a2.shape[0], a2.shape[1], 1)
     print(a2.shape)
+    print(a2)
     plt.imshow(im, cmap='gray')
     plt.show()
 
