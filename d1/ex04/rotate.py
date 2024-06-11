@@ -28,9 +28,11 @@ def main():
     print("The shape of image is:", a_reshaped.shape)
     print(a_reshaped)
 
+    # transpose using list comprehension
     trans = np.array([[a_reshaped[j][i] for j in range(len(a_reshaped))]
                      for i in range(len(a_reshaped[0]))])
 
+    # reshape again for subject expected output
     trans_reshaped = trans.reshape(trans.shape[0], trans.shape[1])
 
     print("New shape after Transpose:", trans_reshaped.shape)
