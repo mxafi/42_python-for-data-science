@@ -34,18 +34,32 @@ def apply_limit(bmi: list[int | float], limit: int) -> list[bool]:
     """
     Takes a list of numbers and some limiting integer,
     return a list of booleans that represent the items in the list of
-    numbers
+    numbers (true if above the limit)
     """
-    pass
+    try:
+        assert all(isinstance(item, (int, float)) for item in bmi), \
+            "input list must consist of ints or floats"
+        a = np.array(bmi)
+        la = a > limit
+        return list(la)
+    except AssertionError as e:
+        print(f"{e.__class__.__name__}: {e}")
+        return []
 
 
 def main():
     """Testmain for give_bmi and apply_limit"""
-    pass
+    heights = [1.6, 1.7, 1.8]
+    print("Heights: ", heights)
+    weights = [60, 70.1, 80]
+    print("Weights: ", weights)
+    bmi = give_bmi(heights, weights)
+    print("   BMIs: ", bmi)
+    limit = 24
+    print("  Limit: ", limit)
+    lim_bmi = apply_limit(bmi, limit)
+    print("Lim-BMI: ", lim_bmi)
 
 
 if __name__ == "__main__":
     main()
-
-bm = give_bmi([1.8, 1.7, 1.6], [80, 70, 60])
-print(bm)
