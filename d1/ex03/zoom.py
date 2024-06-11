@@ -28,7 +28,7 @@ def main():
     im = ImageOps.grayscale(im)
     a2 = np.array(im)
     a2 = a2.reshape(a2.shape[0], a2.shape[1], 1)
-    print(a2.shape)
+    print("New shape after slicing:", a2.shape)
     print(a2)
     plt.imshow(im, cmap='gray')
     plt.show()
