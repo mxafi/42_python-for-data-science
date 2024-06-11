@@ -28,13 +28,12 @@ def main():
     print("The shape of image is:", a2.shape)
     print(a2)
 
-    trnd = np.array([[a2[j][i] for j in range(len(a2))]
-                    for i in range(len(a2[0]))])
+    transposed = np.array([[a2[j][i] for j in range(len(a2))]
+                          for i in range(len(a2[0]))])
 
-    displayable_shape = trnd.reshape(trnd.shape[0], trnd.shape[1])
-    print("New shape after Transpose:", displayable_shape.shape)
-    print(displayable_shape)
-    plt.imshow(Image.fromarray(displayable_shape), cmap='gray')
+    print("New shape after Transpose:", transposed.shape)
+    print(transposed)
+    plt.imshow(transposed, cmap='gray')
     plt.show()
 
 
