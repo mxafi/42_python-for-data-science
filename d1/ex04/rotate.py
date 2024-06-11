@@ -6,12 +6,10 @@ from load_image import ft_load
 
 def main():
     """Program loads an image "animal.jpeg",
-    prints info:
-    - Size in pixels on X and Y axis
-    - Number of channels
-    - Pixel content of the image
-    "zooms" the image,
-    displays the image after zooming
+    cuts a square part of the image,
+    transposes and displays the square.
+    It also prints the new shape and data of the image
+    after the transpose.
     """
     a = ft_load("animal.jpeg")
     if a.size == 1 and a[0] == "error_load_image":
@@ -30,9 +28,13 @@ def main():
     print("The shape of image is:", a2.shape)
     print(a2)
 
-    # transpose here
+    trnd = np.array([[a2[j][i] for j in range(len(a2))]
+                    for i in range(len(a2[0]))])
 
-    plt.imshow(im, cmap='gray')
+    displayable_shape = trnd.reshape(trnd.shape[0], trnd.shape[1])
+    print("New shape after Transpose:", displayable_shape.shape)
+    print(displayable_shape)
+    plt.imshow(Image.fromarray(displayable_shape), cmap='gray')
     plt.show()
 
 
