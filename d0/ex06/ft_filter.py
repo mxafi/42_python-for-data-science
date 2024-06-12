@@ -1,11 +1,8 @@
 class ft_filter:
-    """
-    ft_filter(function or None, iterable) --> filter object
+    """filter(function or None, iterable) --> filter object
 
-    Return an iterator yielding those items of iterable
-    for which function(item) is true.
-    If function is None, return the items that are true.
-    """
+Return an iterator yielding those items of iterable for which function(item)
+is true. If function is None, return the items that are true."""
     def __init__(self, function, iterable):
         self.__function = function
         self.__iterable = iterable
