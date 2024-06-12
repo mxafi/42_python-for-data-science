@@ -1,4 +1,4 @@
-def ft_tqdm(lst: range) -> None:
+def ft_tqdm(lst: range):
     total = len(lst)
     bar_length = 80
     for i, item in enumerate(lst):

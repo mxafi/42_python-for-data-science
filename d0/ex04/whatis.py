@@ -1,11 +1,13 @@
 import sys as s
 
+
 def isInt(i: str) -> bool:
     try:
         int(i)
         return True
     except ValueError:
         return False
+
 
 def whatis():
     if len(s.argv) == 1:
@@ -27,5 +29,6 @@ def whatis():
         print("I'm Even.")
     else:
         print("I'm Odd.")
+
 
 whatis()

@@ -1,10 +1,10 @@
-def NULL_not_found(object: any) -> int:
+def NULL_not_found(object) -> int:
     try:
         type_object = type(object)
-    except:
+    except Exception:
         print("Type not found")
         return 1
-    if type_object == type(None):
+    if type_object is type(None):
         print(f"Nothing: {object} {type_object}")
     elif type_object == float and object != object:
         print(f"Cheese: {object} {type_object}")
@@ -12,7 +12,7 @@ def NULL_not_found(object: any) -> int:
         print(f"Zero: {object} {type_object}")
     elif type_object == str and object == "":
         print(f"Empty: {type_object}")
-    elif type_object == bool and object == False:
+    elif type_object == bool and object is False:
         print(f"Fake: {object} {type_object}")
     else:
         print("Type not Found")
