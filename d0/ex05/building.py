@@ -39,7 +39,7 @@ def main():
         print(f"{count_punct} punctuation marks")
         print(f"{count_space} spaces")
         print(f"{count_digit} digits")
-    except AssertionError as e:
+    except Exception as e:
         print(f"{e.__class__.__name__}: {e}")
         exit(1)
 
