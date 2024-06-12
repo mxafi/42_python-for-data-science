@@ -46,8 +46,21 @@ def convert_to_numeric(s: str) -> float:
         raise ValueError(f"could not convert string to numeric: {s}")
 
 
-def displayCountryPlots(df: pd.DataFrame | None, country1: str, country2: str) -> None:
+def displayCountryPlots(df: pd.DataFrame | None,
+                        country1: str, country2: str) -> None:
     """
+    Display population plots for two countries.
+
+    Parameters:
+    - df (pd.DataFrame | None): The DataFrame containing population data.
+    - country1 (str): The name of the first country.
+    - country2 (str): The name of the second country.
+
+    Returns:
+        None
+
+    Raises:
+        None
     """
     try:
         assert df is not None, "Failed to load DataFrame."
@@ -56,21 +69,27 @@ def displayCountryPlots(df: pd.DataFrame | None, country1: str, country2: str) -
         assert country1 in df["country"].values, "Invalid country1."
         assert country2 in df["country"].values, "Invalid country1."
 
+        blue = "C0"
+        green = "C2"
+
         df.set_index("country", inplace=True)
         df = df.map(convert_to_numeric)
+        df = df.loc[:, "1800":"2050"]
         c1 = df.loc[country1]
         c2 = df.loc[country2]
-        print("Country 1", c1)
-        print("Country 2", c2)
-        print("C1 datatypes", c1.dtypes)
-        print("C2 datatypes", c2.dtypes)
-        c1.plot()
-        c2.plot()
+        c1m = c1.mean()
+        c2m = c2.mean()
+        c1c = green
+        c2c = blue
+        if c2m > c1m:
+            c1c, c2c = c2c, c1c
+        c1.plot(color=c1c)
+        c2.plot(color=c2c)
         plt.title("Population Projections")
         plt.xlabel("Year")
         plt.ylabel("Population")
-        plt.gca().yaxis.set_major_formatter(FuncFormatter(millions_formatter))
         plt.legend(loc='lower right')
+        plt.gca().yaxis.set_major_formatter(FuncFormatter(millions_formatter))
         plt.show()
     except Exception as e:
         print(f"{e.__class__.__name__}: {e}")
@@ -78,6 +97,10 @@ def displayCountryPlots(df: pd.DataFrame | None, country1: str, country2: str) -
 
 def main():
     """
+    This is the main function of the program.
+    It loads the "population_total.csv" file
+    and displays country population projection plots for
+    Finland and France over time.
     """
     df = load("population_total.csv")
     displayCountryPlots(df, "Finland", "France")
