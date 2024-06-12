@@ -30,8 +30,7 @@ def filterstring(S: str, N: int) -> list:
     SS = S.split()
     SSF = f(lambda s: len(s) > N, SS)
     filtered_list = []
-    for item in SSF:
-        filtered_list.append(item)
+    filtered_list = [item for item in SSF]
     return filtered_list
 
 

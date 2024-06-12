@@ -17,13 +17,9 @@ is true. If function is None, return the items that are true."""
         if self.__function is not None and not callable(self.__function):
             return None
 
-        for item in self.__iterable:
-            if self.__function is None:
-                if item:
-                    self.__result.append(item)
-            else:
-                if function(item):
-                    self.__result.append(item)
+        self.__result = [item for item in self.__iterable
+                         if (self.__function is None and item)
+                         or (self.__function and self.__function(item))]
 
     def __iter__(self):
         if self.__function is not None and not callable(self.__function):
