@@ -12,10 +12,12 @@ def load(path: str) -> pd.DataFrame | None:
     pd.DataFrame | None: The loaded DataFrame if successful, None otherwise.
     """
     try:
+        assert path.endswith(".csv"), "Invalid file format (not CSV)."
         df = pd.read_csv(path)
         print("Loading dataset of dimensions", df.shape)
         return df
-    except (FileNotFoundError,
+    except (AssertionError,
+            FileNotFoundError,
             IsADirectoryError,
             PermissionError
             ) as e:
