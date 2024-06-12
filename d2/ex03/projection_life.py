@@ -19,6 +19,8 @@ def main():
         if df_income is None or df_lifespan is None:
             print("Error loading data")
             exit()
+        df_income.set_index('country', inplace=True)
+        df_lifespan.set_index('country', inplace=True)
         df_income_1900 = df_income.loc[:, '1900']
         df_lifespan_1900 = df_lifespan.loc[:, '1900']
         df = pd.concat([df_income_1900, df_lifespan_1900], axis='columns')
