@@ -8,9 +8,9 @@ def slice_me(family: list, start: int, end: int) -> list:
     Returns truncated version of the array based on provided start, end
     """
     try:
-        assert type(family) is list, "family must be a list"
-        assert type(start) is int, "start must be an int"
-        assert type(end) is int, "end must be an int"
+        assert isinstance(family, list), "family must be a list"
+        assert isinstance(start, int), "start must be an int"
+        assert isinstance(end, int), "end must be an int"
         assert all(isinstance(item, list) for item in family), \
             "input list must consist of lists"
         assert len(set(len(sub) for sub in family)) == 1, \
