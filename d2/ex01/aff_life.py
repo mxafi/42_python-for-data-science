@@ -25,12 +25,10 @@ def displayCountryPlot(df: pd.DataFrame | None, country: str) -> None:
 
         df.set_index("country", inplace=True)
         country_view = df.loc[country]
-        print(country_view)
         country_view.plot()
         plt.title(f"{country} Life expectancy Projections")
         plt.xlabel("Year")
         plt.ylabel("Life expectancy")
-        print(country_view.dtypes)
         plt.show()
     except Exception as e:
         print(f"{e.__class__.__name__}: {e}")
