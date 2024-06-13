@@ -3,8 +3,9 @@ from S1E9 import Character
 
 class Baratheon(Character):
     """Representing the Baratheon family."""
-    def __init__(self, first_name, is_alive=True):
-        super().__init__(first_name, is_alive, "brown", "dark")
+    def __init__(self, first_name, is_alive=True,
+                 family_name="Baratheon", eyes="brown", hairs="dark"):
+        super().__init__(first_name, is_alive, family_name, eyes, hairs)
 
     def die(self):
         """Kill the character."""
@@ -26,8 +27,9 @@ class Baratheon(Character):
 
 class Lannister(Character):
     """Representing the Lannister family."""
-    def __init__(self, first_name, is_alive=True):
-        super().__init__(first_name, is_alive, "blue", "light")
+    def __init__(self, first_name, is_alive=True,
+                 family_name="Lannister", eyes="blue", hairs="light"):
+        super().__init__(first_name, is_alive, family_name, eyes, hairs)
 
     def die(self):
         """Kill the character."""

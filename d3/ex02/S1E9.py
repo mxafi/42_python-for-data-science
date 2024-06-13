@@ -5,11 +5,11 @@ class Character(ABC):
     """An abstract base class representing a character."""
     @abstractmethod
     def __init__(self, first_name: str, is_alive: bool = True,
-                 eyes: str = "", hairs: str = ""):
+                 family_name: str = "", eyes: str = "", hairs: str = ""):
         """Constructor for Character class."""
         self.first_name = first_name
         self.is_alive = is_alive
-        self.family_name = self.__class__.__name__
+        self.family_name = family_name
         self.eyes = eyes
         self.hairs = hairs
 
