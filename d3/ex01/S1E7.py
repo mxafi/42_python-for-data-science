@@ -7,10 +7,12 @@ class Baratheon(Character):
         super().__init__(first_name, is_alive, "brown", "dark")
 
     def die(self):
+        """Kill the character."""
         return super().die()
 
     @classmethod
     def create_baratheon(cls, first_name, is_alive=True):
+        """Create a Baratheon character."""
         return cls(first_name, is_alive)
 
     def __str__(self):
@@ -28,10 +30,12 @@ class Lannister(Character):
         super().__init__(first_name, is_alive, "blue", "light")
 
     def die(self):
+        """Kill the character."""
         return super().die()
 
     @classmethod
     def create_lannister(cls, first_name, is_alive=True):
+        """Create a Lannister character."""
         return cls(first_name, is_alive)
 
     def __str__(self):
