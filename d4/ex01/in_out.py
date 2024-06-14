@@ -20,6 +20,15 @@ def outer(x: int | float, function) -> object:
     """
     count = 0
 
+    try:
+        assert callable(function), "function must be callable"
+        assert isinstance(x, int | float), "x must be an int or a float"
+        assert function(x) == function(x), "function must be idempotent"
+        assert isinstance(function(x), int | float), \
+            "function must return an int or a float"
+    except Exception as e:
+        print(f"{e.__class__.__name__}: {e}")
+
     def inner() -> float:
         """Return the result of applying the function to x, count times."""
 
