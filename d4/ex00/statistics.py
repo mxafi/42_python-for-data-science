@@ -44,12 +44,14 @@ def ft_quartile(numbers: list) -> list:
 
 
 def ft_variance(numbers: list) -> float:
+    """Calculate the variance of a given list of numbers."""
     mean = ft_mean(numbers)
     res = sum((x - mean) ** 2 for x in numbers) / len(numbers)
     return res
 
 
 def ft_std(numbers: list) -> float:
+    """Calculate the standard deviation of a given list of numbers."""
     return ft_variance(numbers) ** 0.5
 
 
