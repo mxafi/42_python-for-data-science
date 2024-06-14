@@ -3,10 +3,20 @@ import string
 from dataclasses import dataclass, field
 
 
+def mute_trace(func):
+    def wrapper(*args, **kwargs):
+        try:
+            return func(*args, **kwargs)
+        except Exception as e:
+            print(f"{e.__class__.__name__}: {e}")
+    return wrapper
+
+
 def generate_id() -> str:
     return "".join(random.choices(string.ascii_lowercase, k=15))
 
 
+@mute_trace
 @dataclass
 class Student:
     name: str
