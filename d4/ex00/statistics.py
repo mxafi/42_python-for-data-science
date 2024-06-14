@@ -79,30 +79,31 @@ def ft_statistics(*args, **kwargs) -> None:
     isvalid = check_numbers(numbers)
     for key in kwargs:
         value = kwargs[key]
-        if value == 'mean':
-            if isvalid:
-                print_res(value, ft_mean(numbers))
-            else:
-                print('ERROR')
-        elif value == 'median':
-            if isvalid:
-                print_res(value, ft_median(numbers))
-            else:
-                print('ERROR')
-        elif value == 'quartile':
-            if isvalid:
-                print_res(value, ft_quartile(numbers))
-            else:
-                print('ERROR')
-        elif value == 'std':
-            if isvalid:
-                print_res(value, ft_std(numbers))
-            else:
-                print('ERROR')
-        elif value == 'var':
-            if isvalid:
-                print_res(value, ft_variance(numbers))
-            else:
-                print('ERROR')
-        else:
-            pass
+        match value:
+            case 'mean':
+                if isvalid:
+                    print_res(value, ft_mean(numbers))
+                else:
+                    print('ERROR')
+            case 'median':
+                if isvalid:
+                    print_res(value, ft_median(numbers))
+                else:
+                    print('ERROR')
+            case 'quartile':
+                if isvalid:
+                    print_res(value, ft_quartile(numbers))
+                else:
+                    print('ERROR')
+            case 'std':
+                if isvalid:
+                    print_res(value, ft_std(numbers))
+                else:
+                    print('ERROR')
+            case 'var':
+                if isvalid:
+                    print_res(value, ft_variance(numbers))
+                else:
+                    print('ERROR')
+            case _:
+                pass
