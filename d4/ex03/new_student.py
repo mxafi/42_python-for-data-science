@@ -9,4 +9,11 @@ def generate_id() -> str:
 
 @dataclass
 class Student:
-    pass
+    name: str
+    surname: str
+    active: bool = True
+    login: str = field(init=False)
+    id: str = field(init=False, default_factory=generate_id)
+
+    def __post_init__(self):
+        self.login = self.name[0] + self.surname.lower()
