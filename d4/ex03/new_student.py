@@ -26,4 +26,9 @@ class Student:
     id: str = field(init=False, default_factory=generate_id)
 
     def __post_init__(self):
+        assert isinstance(self.name, str), "Name must be a string"
+        assert isinstance(self.surname, str), "Surname must be a string"
+        assert isinstance(self.active, bool), "Active must be a boolean"
+        assert self.name, "Name must not be empty"
+        assert self.surname, "Surname must not be empty"
         self.login = self.name[0] + self.surname.lower()
