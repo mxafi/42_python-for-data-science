@@ -43,6 +43,16 @@ def ft_quartile(numbers: list) -> list:
     return [res25, res75]
 
 
+def ft_variance(numbers: list) -> float:
+    mean = ft_mean(numbers)
+    res = sum((x - mean) ** 2 for x in numbers) / len(numbers)
+    return res
+
+
+def ft_std(numbers: list) -> float:
+    return ft_variance(numbers) ** 0.5
+
+
 def ft_statistics(*args, **kwargs) -> None:
     """Calculate and print common statistics for a given list of numbers.
 
@@ -84,12 +94,12 @@ def ft_statistics(*args, **kwargs) -> None:
                 print('ERROR')
         elif value == 'std':
             if isvalid:
-                pass
+                print_res(value, ft_std(numbers))
             else:
                 print('ERROR')
         elif value == 'var':
             if isvalid:
-                pass
+                print_res(value, ft_variance(numbers))
             else:
                 print('ERROR')
         else:
