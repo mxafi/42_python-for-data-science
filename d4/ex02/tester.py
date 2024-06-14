@@ -9,9 +9,11 @@ from callLimit import callLimit
 # Error: <function g at 0x7fabdc243ee0> call too many times
 # $>
 
+
 @callLimit(3)
 def f():
     print("f()")
+
 
 @callLimit(1)
 def g():
