@@ -14,11 +14,6 @@ def whatis():
         return
     try:
         assert len(s.argv) < 3, "more than one argument is provided"
-    except AssertionError as e:
-        print(f"{e.__class__.__name__}: {e}")
-        return
-
-    try:
         assert isInt(s.argv[1]), "argument is not an integer"
     except AssertionError as e:
         print(f"{e.__class__.__name__}: {e}")
